@@ -4,10 +4,21 @@ import { TestimonialsSection } from '../components/TestimonialsSection';
 import { FadeUp } from '../components/FadeUp';
 import { services } from '../data/services';
 import { posts } from '../data/posts';
-import * as LucideIcons from 'lucide-react';
+import {
+  ArrowRight, Award, Calculator, CheckCircle, Clock, CloudLightning,
+  Droplets, FileText, Hammer, Home as HomeIcon, Info, Layers,
+  MapPin, Phone, Search, ShieldCheck, Star, Wrench,
+} from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import { useSEO } from '../utils/seo';
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
+
+const iconMap: Record<string, LucideIcon> = {
+  ArrowRight, Award, Calculator, CheckCircle, Clock, CloudLightning,
+  Droplets, FileText, Hammer, Home: HomeIcon, Info, Layers,
+  MapPin, Phone, Search, ShieldCheck, Star, Wrench,
+};
 
 const grid = {
   hidden: {},
@@ -55,6 +66,8 @@ export default function Home() {
             src="https://cdn-genah.nitrocdn.com/aCeRYObydmPvAkBCsJIPFdlzlxATatuh/assets/images/optimized/rev-f6df6c9/austinroofingandwaterdamage.com/wp-content/uploads/WDR-team.jpg"
             alt="Roofing professionals at work in Austin TX"
             className="w-full h-full object-cover"
+            fetchpriority="high"
+            decoding="sync"
           />
           <div className="absolute inset-0 bg-[#111827]/80 lg:bg-none" />
           <div className="absolute inset-0 hidden lg:block bg-gradient-to-r from-[#111827]/70 via-[#111827]/40 to-transparent" />
@@ -63,7 +76,7 @@ export default function Home() {
           <motion.div className="max-w-2xl" variants={heroContainer} initial="hidden" animate="show">
             <motion.div variants={heroItem} transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}>
               <div className="inline-flex items-center gap-2 bg-[#f97316] text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
-                <LucideIcons.Star className="w-3.5 h-3.5 fill-white" /> GAF Master Elite Certified · 1,382+ Five-Star Reviews
+                <Star className="w-3.5 h-3.5 fill-white" /> GAF Master Elite Certified · 1,382+ Five-Star Reviews
               </div>
             </motion.div>
             <motion.h1 variants={heroItem} transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
@@ -77,7 +90,7 @@ export default function Home() {
             <motion.div variants={heroItem} transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
               className="flex flex-wrap gap-4">
               <a href="tel:5128206505" className="btn-gold rounded-lg text-base py-4 px-8 flex items-center gap-2">
-                <LucideIcons.Phone className="w-5 h-5" /> Call (512) 820-6505
+                <Phone className="w-5 h-5" /> Call (512) 820-6505
               </a>
               <Link to="/contact" className="btn-glass-hero">
                 Free Roof Inspection
@@ -105,7 +118,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-8 text-white/90 text-sm font-medium">
           {['GAF Master Elite Certified', 'BBB A+ Rated', 'Available 24/7', 'Free Roof Inspections', 'Austin Business Journal Top 50', 'Fully Licensed & Insured'].map(t => (
             <span key={t} className="flex items-center gap-2">
-              <LucideIcons.CheckCircle className="w-4 h-4 text-[#f97316] shrink-0" /> {t}
+              <CheckCircle className="w-4 h-4 text-[#f97316] shrink-0" /> {t}
             </span>
           ))}
         </div>
@@ -120,10 +133,11 @@ export default function Home() {
                 src="https://austinroofingandwaterdamage.com/wp-content/uploads/installing-roof.jpg"
                 alt="WDR roofing crew installing a new roof in Austin Texas"
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
             <div className="mt-6 glass-dark-card text-white rounded-xl p-5 flex items-center gap-4">
-              <LucideIcons.Award className="w-10 h-10 text-[#f97316] shrink-0" />
+              <Award className="w-10 h-10 text-[#f97316] shrink-0" />
               <div>
                 <div className="font-bold text-sm">Austin Business Journal</div>
                 <div className="text-xs text-white/80 mt-0.5">Top 50 Fastest-Growing Companies in Central Texas — 2020 &amp; 2021</div>
@@ -163,7 +177,7 @@ export default function Home() {
           </FadeUp>
           <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.slice(0, 8).map((service, i) => {
-              const Icon = (LucideIcons[service.icon as keyof typeof LucideIcons] as any) || LucideIcons.Wrench;
+              const Icon = (iconMap[service.icon] ?? Wrench) as LucideIcon;
               return (
                 <motion.div key={i} variants={gridItem}>
                   <Link to={`/services/${service.slug}`} className="glass p-7 rounded-2xl service-card group block h-full">
@@ -173,7 +187,7 @@ export default function Home() {
                     <h3 className="font-bold text-[#111827] text-lg mb-2">{service.name}</h3>
                     <p className="text-[#64748b] text-sm leading-relaxed mb-4">{service.shortDesc}</p>
                     <span className="text-[#f97316] text-xs font-bold uppercase tracking-wider service-link flex items-center gap-1">
-                      Learn More <LucideIcons.ArrowRight className="w-3.5 h-3.5" />
+                      Learn More <ArrowRight className="w-3.5 h-3.5" />
                     </span>
                   </Link>
                 </motion.div>
@@ -202,11 +216,11 @@ export default function Home() {
               { icon: 'Award', title: 'ABJ Top 50 Company', desc: 'Named to the Austin Business Journal\'s Top 50 Fastest-Growing Companies in Central Texas in both 2020 and 2021.', img: 'https://austinroofingandwaterdamage.com/wp-content/uploads/ABJ_Fast_50__Austin_companies_with_hyper_revenue_growth_-_Austin_Business_Journal.png' },
               { icon: 'Home', title: 'Full-Service Restoration', desc: 'From the first missing shingle to full water damage mitigation — we handle roofing AND interior restoration so you only need one call.', img: 'https://austinroofingandwaterdamage.com/wp-content/uploads/water-damage.jpg' },
             ].map((item, i) => {
-              const Icon = (LucideIcons[item.icon as keyof typeof LucideIcons] as any) || LucideIcons.CheckCircle;
+              const Icon = (iconMap[item.icon] ?? CheckCircle) as LucideIcon;
               return (
                 <FadeUp key={i} delay={i * 0.05} className="rounded-2xl bg-[#f8fafc] border border-gray-100 overflow-hidden">
                   <div className="h-40 overflow-hidden">
-                    <img src={item.img} alt={item.title} className="w-full h-full object-cover" />
+                    <img src={item.img} alt={item.title} className="w-full h-full object-cover" loading="lazy" />
                   </div>
                   <div className="flex gap-4 p-6">
                     <div className="w-10 h-10 rounded-xl bg-[#f97316] flex items-center justify-center shrink-0 mt-0.5">
@@ -239,7 +253,7 @@ export default function Home() {
           ]} />
           <div className="text-center mt-12">
             <a href="tel:5128206505" className="btn-gold rounded-lg text-base py-4 px-10 inline-flex items-center gap-2">
-              <LucideIcons.Phone className="w-5 h-5" /> Schedule Your Free Inspection
+              <Phone className="w-5 h-5" /> Schedule Your Free Inspection
             </a>
           </div>
         </div>
@@ -264,7 +278,7 @@ export default function Home() {
               { cls: 'gallery-item', src: 'https://austinroofingandwaterdamage.com/wp-content/uploads/commercial-roof-repair-austin-tx.jpg', alt: 'Commercial roof repair in Austin TX by WDR', label: 'Commercial Repair — Austin' },
             ].map((img, i) => (
               <motion.div key={i} variants={gridItem} className={img.cls}>
-                <img src={img.src} alt={img.alt} />
+                <img src={img.src} alt={img.alt} loading="lazy" />
                 <div className="gallery-overlay"></div>
                 <div className="gallery-label">{img.label}</div>
               </motion.div>
@@ -280,7 +294,7 @@ export default function Home() {
             <div className="text-[#f97316] text-xs font-bold uppercase tracking-widest mb-3">Client Reviews</div>
             <h2 className="font-display text-4xl lg:text-5xl text-[#111827]">What Austin Homeowners Say</h2>
             <div className="flex items-center justify-center gap-2 mt-4">
-              {[...Array(5)].map((_, i) => <LucideIcons.Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />)}
+              {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />)}
               <span className="text-[#475569] font-medium ml-2">4.9 · 1,382+ Google Reviews</span>
             </div>
           </FadeUp>
@@ -303,7 +317,7 @@ export default function Home() {
               <FadeUp key={i} delay={i * 0.1}>
                 <Link to={`/blog/${post.slug}`} className="glass rounded-2xl overflow-hidden group block hover:shadow-lg transition-shadow">
                   <div className="aspect-video overflow-hidden">
-                    <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                   </div>
                   <div className="p-6">
                     <span className="text-[#f97316] text-xs font-bold uppercase tracking-wider">{post.category}</span>
@@ -312,7 +326,7 @@ export default function Home() {
                     <div className="flex items-center justify-between mt-5 pt-4 border-t border-gray-100">
                       <span className="text-[#94a3b8] text-xs">{post.date}</span>
                       <span className="text-[#f97316] text-xs font-bold uppercase tracking-wider flex items-center gap-1">
-                        Read More <LucideIcons.ArrowRight className="w-3.5 h-3.5" />
+                        Read More <ArrowRight className="w-3.5 h-3.5" />
                       </span>
                     </div>
                   </div>
@@ -338,7 +352,7 @@ export default function Home() {
                 { icon: 'Phone', label: 'Phone', val: '(512) 820-6505', href: 'tel:5128206505' },
                 { icon: 'Clock', label: 'Hours', val: 'Open 24 hours / 7 days a week' },
               ].map(item => {
-                const Icon = (LucideIcons[item.icon as keyof typeof LucideIcons] as any) || LucideIcons.Info;
+                const Icon = (iconMap[item.icon] ?? Info) as LucideIcon;
                 return (
                   <div key={item.label} className="flex gap-4 items-start">
                     <div className="w-10 h-10 rounded-lg bg-[#f97316] flex items-center justify-center shrink-0">
@@ -356,7 +370,7 @@ export default function Home() {
               })}
             </div>
             <a href="https://www.google.com/maps/place/Austin+Roofing+Company+%26+Water+Damage+%7C+WDR/@30.3761555,-97.7127597,21z" target="_blank" rel="noopener noreferrer" className="btn-gold rounded-lg inline-flex items-center gap-2">
-              <LucideIcons.MapPin className="w-4 h-4" /> Get Directions
+              <MapPin className="w-4 h-4" /> Get Directions
             </a>
           </FadeUp>
           <FadeUp from="right">
@@ -382,7 +396,7 @@ export default function Home() {
           <p className="text-white/90 text-lg mb-8">Get a free, no-obligation roof inspection from Austin's #1 rated contractor. We respond fast — most inspections scheduled within 24 hours.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a href="tel:5128206505" className="inline-flex items-center gap-2 bg-white text-[#f97316] font-bold text-sm uppercase tracking-wide py-4 px-8 rounded-lg hover:bg-orange-50 transition-colors shadow-lg">
-              <LucideIcons.Phone className="w-5 h-5" /> Call (512) 820-6505
+              <Phone className="w-5 h-5" /> Call (512) 820-6505
             </a>
             <Link to="/contact" className="inline-flex items-center gap-2 bg-transparent border-2 border-white text-white font-bold text-sm uppercase tracking-wide py-4 px-8 rounded-lg hover:bg-white/10 transition-colors">
               Request Free Inspection
