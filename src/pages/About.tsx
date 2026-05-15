@@ -45,7 +45,7 @@ export default function About() {
           </div>
           <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
             <img
-              src="https://austinroofingandwaterdamage.com/wp-content/uploads/WDR-Shop-1.jpg"
+              src="/images/wdr-shop.webp"
               alt="WDR roofing team working on a residential roof in Austin TX"
               className="w-full h-full object-cover"
             />
@@ -72,9 +72,9 @@ export default function About() {
           <h3 className="font-display text-4xl text-[#1e3a5f] text-center mb-12">Our Core Values</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { img: 'https://austinroofingandwaterdamage.com/wp-content/uploads/roof-repair-contractor.jpg', title: 'Integrity', desc: 'We never recommend a replacement when a repair will do. Honest assessments are our foundation — always.' },
-              { img: 'https://austinroofingandwaterdamage.com/wp-content/uploads/roofing-workers-on-roof-placing-metal-roofing-1.jpg', title: 'Craftsmanship', desc: 'Using GAF Master Elite materials and exhaustive safety protocols ensures an install that outlasts our warranties.' },
-              { img: 'https://austinroofingandwaterdamage.com/wp-content/uploads/Brad-and-Coby-of-Austin-Roofing-and-Water-Damage-WDR.png', title: 'Transparency', desc: 'Clear pricing, complete photo documentation, and zero hidden fees. We communicate every step of the way.' },
+              { img: '/images/roof-repair-contractor.webp', title: 'Integrity', desc: 'We never recommend a replacement when a repair will do. Honest assessments are our foundation — always.' },
+              { img: '/images/roofing-workers.webp', title: 'Craftsmanship', desc: 'Using GAF Master Elite materials and exhaustive safety protocols ensures an install that outlasts our warranties.' },
+              { img: '/images/brad-and-coby.webp', title: 'Transparency', desc: 'Clear pricing, complete photo documentation, and zero hidden fees. We communicate every step of the way.' },
             ].map((v, i) => (
               <div key={i} className="rounded-2xl overflow-hidden shadow-sm border border-gray-100 bg-white">
                 <div className="h-48 overflow-hidden">

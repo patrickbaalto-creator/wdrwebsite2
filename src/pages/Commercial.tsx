@@ -6,12 +6,12 @@ import * as LucideIcons from 'lucide-react';
 import { useSEO } from '../utils/seo';
 
 const industries = [
-  { label: 'Property Management', img: 'https://austinroofingandwaterdamage.com/wp-content/uploads/commercial-roof-repair-austin-tx.jpg' },
-  { label: 'Retail Centers', img: 'https://austinroofingandwaterdamage.com/wp-content/uploads/roof-repair-austin-tx1.jpg' },
-  { label: 'Industrial Parks', img: 'https://austinroofingandwaterdamage.com/wp-content/uploads/18-metal-roof-DJI-scaled.jpg' },
-  { label: 'Healthcare', img: 'https://austinroofingandwaterdamage.com/wp-content/uploads/AustinRoofInstallation2.png' },
-  { label: 'Education', img: 'https://austinroofingandwaterdamage.com/wp-content/uploads/flat-lock-copper-roof-installation-2.jpg' },
-  { label: 'Hospitality', img: 'https://austinroofingandwaterdamage.com/wp-content/uploads/metal-roof-Georgetown33-scaled.jpg' },
+  { label: 'Property Management', img: '/images/commercial-roof-repair.webp' },
+  { label: 'Retail Centers', img: '/images/roof-repair-austin.webp' },
+  { label: 'Industrial Parks', img: '/images/metal-roof-dji.webp' },
+  { label: 'Healthcare', img: '/images/roof-installation.webp' },
+  { label: 'Education', img: '/images/flat-lock-copper.webp' },
+  { label: 'Hospitality', img: '/images/metal-roof-georgetown.webp' },
 ];
 
 export default function Commercial() {
@@ -45,10 +45,10 @@ export default function Commercial() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="aspect-[4/5] rounded-2xl overflow-hidden -mt-8 shadow-lg">
-              <img src="https://austinroofingandwaterdamage.com/wp-content/uploads/commercial-roof-repair-austin-tx.jpg" className="w-full h-full object-cover" alt="Commercial Roof Repair Austin TX" />
+              <img src="/images/commercial-roof-repair.webp" className="w-full h-full object-cover" alt="Commercial Roof Repair Austin TX" />
             </div>
             <div className="aspect-[4/5] rounded-2xl overflow-hidden mt-8 shadow-lg">
-              <img src="https://austinroofingandwaterdamage.com/wp-content/uploads/18-metal-roof-DJI-scaled.jpg" className="w-full h-full object-cover" alt="Metal Roof Aerial Austin TX" />
+              <img src="/images/metal-roof-dji.webp" className="w-full h-full object-cover" alt="Metal Roof Aerial Austin TX" />
             </div>
           </div>
         </div>
