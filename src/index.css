@@ -13,7 +13,7 @@ html.dark {
 body {
   background-color: #ffffff;
   color: #1e293b;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
   min-height: 100vh;
 }
@@ -23,7 +23,7 @@ body {
 ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #64748b; }
 
-.font-display { font-family: 'Playfair Display', serif; font-weight: 700; }
+.font-display { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; }
 
 /* Card / panel styles */
 .glass {
