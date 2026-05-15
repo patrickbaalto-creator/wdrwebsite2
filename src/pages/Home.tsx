@@ -66,7 +66,7 @@ export default function Home() {
             <source srcSet="/images/hero-mobile.webp" media="(max-width: 768px)" type="image/webp" />
             <source srcSet="/images/hero.webp" type="image/webp" />
             <img
-              src="/images/hero.jpg"
+              src="/images/hero.webp"
               alt="Roofing professionals at work in Austin TX"
               className="w-full h-full object-cover"
               fetchpriority="high"
@@ -134,7 +134,7 @@ export default function Home() {
           <FadeUp from="left">
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-xl">
               <img
-                src="https://austinroofingandwaterdamage.com/wp-content/uploads/installing-roof.jpg"
+                src="/images/installing-roof.webp"
                 alt="WDR roofing crew installing a new roof in Austin Texas"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -213,12 +213,12 @@ export default function Home() {
           </FadeUp>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: 'ShieldCheck', title: 'GAF Master Elite Certified', desc: 'Only the top 3% of roofing contractors earn GAF Master Elite status. This means access to the Golden Pledge warranty — up to 50 years of coverage.', img: 'https://austinroofingandwaterdamage.com/wp-content/uploads/AustinRoofInstallation2.png' },
-              { icon: 'Clock', title: 'Available 24/7', desc: 'Roof emergencies don\'t wait for business hours. Our rapid-response crews are on call around the clock for tarping, emergency repairs, and water extraction.', img: 'https://austinroofingandwaterdamage.com/wp-content/uploads/storm-damage-roof-repair-austin-tx.jpg' },
-              { icon: 'FileText', title: 'Insurance Claim Experts', desc: 'We work directly with your insurance adjuster and handle all the paperwork to ensure you get the maximum coverage for storm and hail damage.', img: 'https://austinroofingandwaterdamage.com/wp-content/uploads/roofing-damage-how-to-file-insurance-claim.jpg' },
-              { icon: 'Star', title: '1,382+ Five-Star Reviews', desc: 'Our track record speaks for itself — over 1,382 five-star Google reviews from Austin homeowners and businesses.', img: 'https://austinroofingandwaterdamage.com/wp-content/uploads/WDR-team.jpg' },
-              { icon: 'Award', title: 'ABJ Top 50 Company', desc: 'Named to the Austin Business Journal\'s Top 50 Fastest-Growing Companies in Central Texas in both 2020 and 2021.', img: 'https://austinroofingandwaterdamage.com/wp-content/uploads/ABJ_Fast_50__Austin_companies_with_hyper_revenue_growth_-_Austin_Business_Journal.png' },
-              { icon: 'Home', title: 'Full-Service Restoration', desc: 'From the first missing shingle to full water damage mitigation — we handle roofing AND interior restoration so you only need one call.', img: 'https://austinroofingandwaterdamage.com/wp-content/uploads/water-damage.jpg' },
+              { icon: 'ShieldCheck', title: 'GAF Master Elite Certified', desc: 'Only the top 3% of roofing contractors earn GAF Master Elite status. This means access to the Golden Pledge warranty — up to 50 years of coverage.', img: '/images/roof-installation.webp' },
+              { icon: 'Clock', title: 'Available 24/7', desc: 'Roof emergencies don\'t wait for business hours. Our rapid-response crews are on call around the clock for tarping, emergency repairs, and water extraction.', img: '/images/storm-damage.webp' },
+              { icon: 'FileText', title: 'Insurance Claim Experts', desc: 'We work directly with your insurance adjuster and handle all the paperwork to ensure you get the maximum coverage for storm and hail damage.', img: '/images/insurance-claim.webp' },
+              { icon: 'Star', title: '1,382+ Five-Star Reviews', desc: 'Our track record speaks for itself — over 1,382 five-star Google reviews from Austin homeowners and businesses.', img: '/images/wdr-team.webp' },
+              { icon: 'Award', title: 'ABJ Top 50 Company', desc: 'Named to the Austin Business Journal\'s Top 50 Fastest-Growing Companies in Central Texas in both 2020 and 2021.', img: '/images/abj.webp' },
+              { icon: 'Home', title: 'Full-Service Restoration', desc: 'From the first missing shingle to full water damage mitigation — we handle roofing AND interior restoration so you only need one call.', img: '/images/water-damage.webp' },
             ].map((item, i) => {
               const Icon = (iconMap[item.icon] ?? CheckCircle) as LucideIcon;
               return (
@@ -275,11 +275,11 @@ export default function Home() {
           </div>
           <StaggerGrid className="gallery-grid rounded-2xl overflow-hidden">
             {[
-              { cls: 'gallery-item gallery-item-large', src: 'https://austinroofingandwaterdamage.com/wp-content/uploads/Round-Rock-shingles-scaled.jpg', alt: 'Premium asphalt shingle roof installation in Round Rock TX by WDR Roofing', label: 'Premium Asphalt Install — Round Rock' },
-              { cls: 'gallery-item', src: 'https://austinroofingandwaterdamage.com/wp-content/uploads/metal-roofing-austin-tx.jpg', alt: 'Standing seam metal roof in Austin TX by WDR', label: 'Standing Seam Metal — Austin' },
-              { cls: 'gallery-item', src: 'https://austinroofingandwaterdamage.com/wp-content/uploads/done-Lakeline.jpg', alt: 'Completed roof project at Lakeline by WDR Roofing', label: 'Full Replacement — Lakeline' },
-              { cls: 'gallery-item', src: 'https://austinroofingandwaterdamage.com/wp-content/uploads/storm-damage-roof-repair-austin-tx1-scaled.jpg', alt: 'Storm damage roof repair in Austin TX by WDR', label: 'Storm Damage Repair — Austin' },
-              { cls: 'gallery-item', src: 'https://austinroofingandwaterdamage.com/wp-content/uploads/commercial-roof-repair-austin-tx.jpg', alt: 'Commercial roof repair in Austin TX by WDR', label: 'Commercial Repair — Austin' },
+              { cls: 'gallery-item gallery-item-large', src: '/images/gallery-shingles.webp', alt: 'Premium asphalt shingle roof installation in Round Rock TX by WDR Roofing', label: 'Premium Asphalt Install — Round Rock' },
+              { cls: 'gallery-item', src: '/images/gallery-metal.webp', alt: 'Standing seam metal roof in Austin TX by WDR', label: 'Standing Seam Metal — Austin' },
+              { cls: 'gallery-item', src: '/images/gallery-lakeline.webp', alt: 'Completed roof project at Lakeline by WDR Roofing', label: 'Full Replacement — Lakeline' },
+              { cls: 'gallery-item', src: '/images/gallery-storm.webp', alt: 'Storm damage roof repair in Austin TX by WDR', label: 'Storm Damage Repair — Austin' },
+              { cls: 'gallery-item', src: '/images/gallery-commercial.webp', alt: 'Commercial roof repair in Austin TX by WDR', label: 'Commercial Repair — Austin' },
             ].map((img, i) => (
               <motion.div key={i} variants={gridItem} className={img.cls}>
                 <img src={img.src} alt={img.alt} loading="lazy" />
