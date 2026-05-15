@@ -9,91 +9,96 @@ export default function PrivacyPolicy() {
     canonical: '/privacy-policy',
   });
 
+  const h2 = 'font-display text-2xl text-[#1e3a5f] mb-4';
+  const p = 'leading-relaxed mb-4';
+
   return (
     <div className="bg-white">
       <PageHero
         height="35vh"
         eyebrow="Legal"
         title="Privacy Policy"
-        subtitle="Last updated: May 15, 2025"
       />
 
       <div className="max-w-4xl mx-auto px-6 lg:px-12 py-16">
         <Breadcrumb items={[{ label: 'Privacy Policy' }]} />
 
-        <div className="prose prose-slate max-w-none mt-10 space-y-10 text-[#475569]">
+        <div className="mt-10 space-y-10 text-[#475569]">
 
           <section>
-            <h2 className="font-display text-2xl text-[#1e3a5f] mb-4">1. Information We Collect</h2>
-            <p className="leading-relaxed mb-4">
-              When you use our website or contact us, we may collect the following types of information:
-            </p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Contact information</strong> — your name, phone number, and email address when you fill out a contact or inspection request form.</li>
-              <li><strong>Service details</strong> — information about your roofing or water damage restoration needs that you provide in messages or forms.</li>
-              <li><strong>Usage data</strong> — standard web analytics data such as pages visited, time on site, and referring URLs, collected via cookies or similar technologies.</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl text-[#1e3a5f] mb-4">2. How We Use Your Information</h2>
-            <p className="leading-relaxed mb-4">We use the information we collect to:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Respond to your inquiries and schedule inspections or estimates.</li>
-              <li>Provide roofing and water damage restoration services.</li>
-              <li>Improve our website and customer experience.</li>
-              <li>Send you service-related communications (we do not send marketing emails without your consent).</li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl text-[#1e3a5f] mb-4">3. How We Share Your Information</h2>
-            <p className="leading-relaxed">
-              We do not sell, trade, or rent your personal information to third parties. We may share your information with trusted service providers who assist us in operating our website or conducting our business, provided those parties agree to keep your information confidential. We may also disclose information when required by law.
+            <p className={p}>
+              Your privacy is critically important to us. At Austin Roofing Company &amp; Water Damage | WDR, we have a few fundamental principles that we follow regarding the information you share with us.
             </p>
           </section>
 
           <section>
-            <h2 className="font-display text-2xl text-[#1e3a5f] mb-4">4. Cookies</h2>
-            <p className="leading-relaxed">
-              Our website may use cookies to enhance your browsing experience. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. If you disable cookies, some parts of our site may not function properly.
+            <h2 className={h2}>Information We Collect &amp; How We Use It</h2>
+            <p className={p}>
+              We are committed to the following practices regarding your personal information:
+            </p>
+
+            <div className="space-y-6">
+              <div className="bg-[#f8fafc] border border-gray-100 rounded-xl p-6">
+                <h3 className="font-semibold text-[#1e3a5f] mb-2">Purpose Identification</h3>
+                <p className="text-sm leading-relaxed">
+                  Before or at the time of collecting personal information, we will identify the purposes for which information is being collected.
+                </p>
+              </div>
+
+              <div className="bg-[#f8fafc] border border-gray-100 rounded-xl p-6">
+                <h3 className="font-semibold text-[#1e3a5f] mb-2">Limited Use</h3>
+                <p className="text-sm leading-relaxed">
+                  We will collect and use personal information solely for fulfilling the purposes specified by us and for other compatible purposes, unless we obtain the consent of the individual concerned or as required by law.
+                </p>
+              </div>
+
+              <div className="bg-[#f8fafc] border border-gray-100 rounded-xl p-6">
+                <h3 className="font-semibold text-[#1e3a5f] mb-2">Retention Limits</h3>
+                <p className="text-sm leading-relaxed">
+                  We will only retain personal information as long as necessary for the fulfillment of those purposes.
+                </p>
+              </div>
+
+              <div className="bg-[#f8fafc] border border-gray-100 rounded-xl p-6">
+                <h3 className="font-semibold text-[#1e3a5f] mb-2">Fair Collection</h3>
+                <p className="text-sm leading-relaxed">
+                  We will collect personal information by lawful and fair means and, where appropriate, with the knowledge or consent of the individual concerned.
+                </p>
+              </div>
+
+              <div className="bg-[#f8fafc] border border-gray-100 rounded-xl p-6">
+                <h3 className="font-semibold text-[#1e3a5f] mb-2">Data Quality</h3>
+                <p className="text-sm leading-relaxed">
+                  Personal data should be relevant to the purposes for which it is to be used, and to the extent necessary for those purposes, should be accurate, complete, and up-to-date.
+                </p>
+              </div>
+
+              <div className="bg-[#f8fafc] border border-gray-100 rounded-xl p-6">
+                <h3 className="font-semibold text-[#1e3a5f] mb-2">Security Protections</h3>
+                <p className="text-sm leading-relaxed">
+                  We will protect personal information by reasonable security safeguards against loss or theft, as well as unauthorized access, disclosure, copying, use or modification.
+                </p>
+              </div>
+
+              <div className="bg-[#f8fafc] border border-gray-100 rounded-xl p-6">
+                <h3 className="font-semibold text-[#1e3a5f] mb-2">Transparency</h3>
+                <p className="text-sm leading-relaxed">
+                  We will make readily available to customers information about our policies and practices relating to the management of personal information.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <p className={p}>
+              We are committed to conducting our business in accordance with these principles in order to ensure that the confidentiality of personal information is protected and maintained.
             </p>
           </section>
 
           <section>
-            <h2 className="font-display text-2xl text-[#1e3a5f] mb-4">5. Third-Party Links</h2>
-            <p className="leading-relaxed">
-              Our website may contain links to third-party sites (such as Google Maps or review platforms). We are not responsible for the privacy practices of those sites and encourage you to review their privacy policies separately.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl text-[#1e3a5f] mb-4">6. Data Security</h2>
-            <p className="leading-relaxed">
-              We implement reasonable security measures to protect your personal information from unauthorized access, disclosure, or destruction. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl text-[#1e3a5f] mb-4">7. Children's Privacy</h2>
-            <p className="leading-relaxed">
-              Our website is not directed to children under the age of 13, and we do not knowingly collect personal information from children.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl text-[#1e3a5f] mb-4">8. Changes to This Policy</h2>
-            <p className="leading-relaxed">
-              We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date. Continued use of our website after changes constitutes your acceptance of the revised policy.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl text-[#1e3a5f] mb-4">9. Contact Us</h2>
-            <p className="leading-relaxed">
-              If you have any questions about this Privacy Policy, please contact us:
-            </p>
-            <div className="mt-4 bg-[#f8fafc] border border-gray-100 rounded-xl p-6 space-y-1 text-sm">
+            <h2 className={h2}>Contact Us</h2>
+            <p className={p}>If you have any questions about this Privacy Policy, please contact us:</p>
+            <div className="bg-[#f8fafc] border border-gray-100 rounded-xl p-6 space-y-1 text-sm">
               <p className="font-semibold text-[#1e3a5f]">WDR — Austin Roofing Company &amp; Water Damage</p>
               <p>9711 Beck Cir, Austin, TX 78758</p>
               <p><a href="tel:5128206505" className="text-[#f97316] hover:underline">(512) 820-6505</a></p>
