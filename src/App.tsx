@@ -2,6 +2,8 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./Layout";
 import Home from "./pages/Home";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsAndConditions from "./pages/TermsAndConditions";
 
 const About        = lazy(() => import('./pages/About'));
 const Services     = lazy(() => import('./pages/Services'));
@@ -14,9 +16,7 @@ const Contact      = lazy(() => import('./pages/Contact'));
 const VideoGallery = lazy(() => import('./pages/VideoGallery'));
 const ServiceArea  = lazy(() => import('./pages/service-area/ServiceArea'));
 const RoofTypes    = lazy(() => import('./pages/roof-types/RoofTypes'));
-const PrivacyPolicy       = lazy(() => import('./pages/PrivacyPolicy'));
-const TermsAndConditions  = lazy(() => import('./pages/TermsAndConditions'));
-const NotFound            = lazy(() => import('./pages/NotFound'));
+const NotFound     = lazy(() => import('./pages/NotFound'));
 
 export default function App() {
   return (

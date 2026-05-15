@@ -18,6 +18,8 @@ import Commercial from './pages/Commercial';
 import RoofTypes from './pages/roof-types/RoofTypes';
 import ServiceArea from './pages/service-area/ServiceArea';
 import FactoryComponent from './pages/FactoryComponent'; // We will use a router generic factory for repetitive pages
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsAndConditions from './pages/TermsAndConditions';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -44,6 +46,9 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/video-gallery" element={<VideoGallery />} />
           
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
