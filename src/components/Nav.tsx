@@ -1,15 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, ChevronDown, Moon, Sun } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 
 function useDarkMode() {
   const [dark, setDark] = useState(false);
-  const toggle = () => setDark(d => {
-    const next = !d;
-    document.documentElement.classList.toggle('dark', next);
-    return next;
-  });
+  useEffect(() => {
+    document.documentElement.classList.remove('dark');
+  }, []);
+  function toggle() {
+    setDark(prev => {
+      const next = !prev;
+      if (next) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      return next;
+    });
+  }
   return { dark, toggle };
 }
 
