@@ -286,7 +286,7 @@ export default function Home() {
           </FadeUp>
           <TestimonialsSection />
           <div className="text-center mt-10">
-            <a href="https://g.page/r/REVIEW_LINK/review" target="_blank" rel="noopener noreferrer" className="btn-ghost rounded-lg">Write a Review</a>
+            <a href="https://www.google.com/maps/place/Water+Damage+and+Roofing+of+Austin+TX+Roofing+Contractor+Roofing+Company+Austin/@30.3077609,-97.7557424,11z/data=!4m6!3m5!1s0x8644cbeec398bf49:0x735fa6fbe3b9bd5f!8m2!3d30.3077609!4d-97.7557424!16s%2Fg%2F11gbk2fppq" target="_blank" rel="noopener noreferrer" className="btn-ghost rounded-lg">Write a Review</a>
           </div>
         </div>
       </section>
