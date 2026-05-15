@@ -84,11 +84,7 @@ export function Nav() {
         ${scrolled ? 'shadow-md border-b border-gray-200' : 'border-b border-gray-100'}`}>
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
-          <div className="bg-[#111827] text-[#f97316] font-bold text-lg px-3 py-1.5 rounded font-display tracking-wide border-l-4 border-[#f97316]">WDR</div>
-          <div className="hidden sm:block">
-            <div className="text-[#111827] font-bold text-sm leading-tight">Austin Roofing</div>
-            <div className="text-[#64748b] text-xs leading-tight">& Water Damage</div>
-          </div>
+          <img src="/wdr-logo.png" alt="Austin Roofing Company & Water Damage WDR" className="h-10 w-auto" />
         </Link>
 
         {/* Desktop Links */}
