@@ -11,14 +11,14 @@ function ContactForm() {
     fullName: '', phone: '', email: '', serviceType: 'Not Sure', bestTime: 'Anytime', message: ''
   });
 
-  const inputClass = "w-full bg-white dark-input border border-gray-200 text-[#1e293b] rounded-lg px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-[#1d4ed8]/40 transition-all text-[0.95rem]";
+  const inputClass = "w-full bg-white dark-input border border-gray-200 text-[#1e293b] rounded-lg px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-[#f97316]/40 transition-all text-[0.95rem]";
   const labelClass = "block text-[0.75rem] uppercase tracking-[0.1em] text-[#64748b] mb-1.5 font-semibold";
 
   if (submitted) {
     return (
       <div className="text-center space-y-4 py-12">
-        <LucideIcons.CheckCircle className="w-14 h-14 text-[#1d4ed8] mx-auto" />
-        <h3 className="font-display text-2xl text-[#1e3a5f]">We'll be in touch within 2 hours.</h3>
+        <LucideIcons.CheckCircle className="w-14 h-14 text-[#f97316] mx-auto" />
+        <h3 className="font-display text-2xl text-[#111827]">We'll be in touch within 2 hours.</h3>
         <p className="text-[#64748b]">A member of our team will call you at {form.phone}.</p>
       </div>
     );
@@ -82,11 +82,11 @@ export default function Contact() {
       />
 
       {/* Emergency Strip */}
-      <div className="bg-[#1e3a5f] px-4 py-3.5 text-center">
+      <div className="bg-[#111827] px-4 py-3.5 text-center">
         <p className="text-white font-semibold text-[0.85rem] uppercase tracking-widest flex items-center justify-center flex-wrap gap-2">
-          <LucideIcons.AlertTriangle className="w-4 h-4 text-blue-300" />
+          <LucideIcons.AlertTriangle className="w-4 h-4 text-[#f97316]" />
           Roof emergency? Available 24/7. &rarr;
-          <a href="tel:5128206505" className="text-blue-300 hover:text-white underline underline-offset-2">(512) 820-6505</a>
+          <a href="tel:5128206505" className="text-[#f97316] hover:text-white underline underline-offset-2">(512) 820-6505</a>
         </p>
       </div>
 
@@ -98,8 +98,8 @@ export default function Contact() {
           {/* Left — info */}
           <FadeUp className="lg:col-span-5 space-y-8">
             <div>
-              <div className="text-[#1d4ed8] text-xs font-bold uppercase tracking-widest mb-3">Get In Touch</div>
-              <h2 className="font-display text-4xl text-[#1e3a5f] mb-4">Contact <em>WDR</em></h2>
+              <div className="text-[#f97316] text-xs font-bold uppercase tracking-widest mb-3">Get In Touch</div>
+              <h2 className="font-display text-4xl text-[#111827] mb-4">Contact <em>WDR</em></h2>
               <p className="text-[#475569] text-lg font-light leading-relaxed">
                 Send us a message or reach out directly. Our team operates exactly like our crews: fast, friendly, and honest.
               </p>
@@ -107,15 +107,15 @@ export default function Contact() {
 
             <div className="space-y-4">
               {[
-                { icon: 'Phone', label: 'Direct Line', content: <a href="tel:5128206505" className="text-[#1e3a5f] font-semibold text-lg hover:text-[#1d4ed8]">(512) 820-6505</a> },
-                { icon: 'Mail', label: 'Email', content: <a href="mailto:info@austinwdr.com" className="text-[#1e3a5f] font-medium hover:text-[#1d4ed8] text-sm">info@austinwdr.com</a> },
+                { icon: 'Phone', label: 'Direct Line', content: <a href="tel:5128206505" className="text-[#111827] font-semibold text-lg hover:text-[#f97316]">(512) 820-6505</a> },
+                { icon: 'Mail', label: 'Email', content: <a href="mailto:info@austinwdr.com" className="text-[#111827] font-medium hover:text-[#f97316] text-sm">info@austinwdr.com</a> },
                 { icon: 'MapPin', label: 'Headquarters', content: <p className="text-[#475569] text-sm">9711 Beck Cir, Austin, TX 78758</p> },
-                { icon: 'Clock', label: 'Hours', content: <p className="text-[#475569] text-sm">Mon–Fri 7am–6pm &nbsp;·&nbsp; <span className="text-[#1d4ed8] font-semibold">Emergency 24/7</span></p> },
+                { icon: 'Clock', label: 'Hours', content: <p className="text-[#475569] text-sm">Mon–Fri 7am–6pm &nbsp;·&nbsp; <span className="text-[#f97316] font-semibold">Emergency 24/7</span></p> },
               ].map(({ icon, label, content }) => {
                 const Icon = (LucideIcons as any)[icon];
                 return (
                   <div key={label} className="flex gap-4 items-start p-4 rounded-xl bg-[#f8fafc] border border-gray-100">
-                    <div className="w-10 h-10 rounded-lg bg-[#1e3a5f] flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 rounded-lg bg-[#f97316] flex items-center justify-center shrink-0">
                       <Icon className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -142,7 +142,7 @@ export default function Contact() {
             <a
               href="https://www.google.com/maps/place/Austin+Roofing+Company+%26+Water+Damage+%7C+WDR/@30.3761555,-97.7127597,21z"
               target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[#1d4ed8] text-sm font-semibold hover:underline"
+              className="inline-flex items-center gap-2 text-[#f97316] text-sm font-semibold hover:underline"
             >
               <LucideIcons.MapPin className="w-4 h-4" /> Get Directions on Google Maps &rarr;
             </a>
@@ -151,8 +151,8 @@ export default function Contact() {
           {/* Right — form */}
           <FadeUp delay={0.1} className="lg:col-span-7">
             <div className="bg-white border border-gray-200 rounded-3xl p-8 md:p-12 shadow-sm">
-              <div className="text-[#1d4ed8] text-xs font-bold uppercase tracking-widest mb-3">Free Estimate</div>
-              <h3 className="font-display text-3xl text-[#1e3a5f] mb-8">Request a Free Inspection</h3>
+              <div className="text-[#f97316] text-xs font-bold uppercase tracking-widest mb-3">Free Estimate</div>
+              <h3 className="font-display text-3xl text-[#111827] mb-8">Request a Free Inspection</h3>
               <ContactForm />
             </div>
           </FadeUp>
