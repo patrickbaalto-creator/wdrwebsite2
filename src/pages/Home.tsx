@@ -6,6 +6,16 @@ import { services } from '../data/services';
 import { posts } from '../data/posts';
 import * as LucideIcons from 'lucide-react';
 import { useSEO } from '../utils/seo';
+import { motion } from 'motion/react';
+
+const heroItem = {
+  hidden: { opacity: 0, y: 32 },
+  show:   { opacity: 1, y: 0 },
+};
+const heroContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.13, delayChildren: 0.15 } },
+};
 
 export default function Home() {
   useSEO({
@@ -25,29 +35,35 @@ export default function Home() {
             alt="Roofing professionals at work in Austin TX"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[#1e3a5f]/80 lg:bg-none" />
-          <div className="absolute inset-0 hidden lg:block bg-gradient-to-r from-[#1e3a5f]/55 via-[#1e3a5f]/30 to-transparent" />
+          <div className="absolute inset-0 bg-[#111827]/80 lg:bg-none" />
+          <div className="absolute inset-0 hidden lg:block bg-gradient-to-r from-[#111827]/70 via-[#111827]/40 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-20">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-[#1d4ed8] text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
-              <LucideIcons.Star className="w-3.5 h-3.5 fill-white" /> GAF Master Elite Certified · 1,382+ Five-Star Reviews
-            </div>
-            <h1 className="font-display text-5xl lg:text-6xl text-white leading-[1.1] mb-6">
-              Austin's Most Trusted<br/><span className="text-blue-300">Roofing Company</span>
-            </h1>
-            <p className="text-white/80 text-lg font-light leading-relaxed mb-8 max-w-xl">
+          <motion.div className="max-w-2xl" variants={heroContainer} initial="hidden" animate="show">
+            <motion.div variants={heroItem} transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}>
+              <div className="inline-flex items-center gap-2 bg-[#f97316] text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+                <LucideIcons.Star className="w-3.5 h-3.5 fill-white" /> GAF Master Elite Certified · 1,382+ Five-Star Reviews
+              </div>
+            </motion.div>
+            <motion.h1 variants={heroItem} transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+              className="font-display text-5xl lg:text-6xl text-white leading-[1.1] mb-6">
+              Austin's Most Trusted<br/><span className="text-[#f97316]">Roofing Company</span>
+            </motion.h1>
+            <motion.p variants={heroItem} transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+              className="text-white/80 text-lg font-light leading-relaxed mb-8 max-w-xl">
               WDR has been serving Austin since 2012, drawing on 25+ years of combined roofing experience. We also provide full-service water damage restoration — available 24/7.
-            </p>
-            <div className="flex flex-wrap gap-4">
+            </motion.p>
+            <motion.div variants={heroItem} transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+              className="flex flex-wrap gap-4">
               <a href="tel:5128206505" className="btn-gold rounded-lg text-base py-4 px-8 flex items-center gap-2">
                 <LucideIcons.Phone className="w-5 h-5" /> Call (512) 820-6505
               </a>
               <Link to="/contact" className="btn-glass-hero">
                 Free Roof Inspection
               </Link>
-            </div>
-            <div className="flex flex-wrap gap-6 mt-8 pt-8 border-t border-white/20">
+            </motion.div>
+            <motion.div variants={heroItem} transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+              className="flex flex-wrap gap-6 mt-8 pt-8 border-t border-white/20">
               {[
                 { label: 'Years Serving Austin', val: '13+' },
                 { label: 'Five-Star Reviews', val: '1,382+' },
@@ -58,17 +74,17 @@ export default function Home() {
                   <div className="text-white/70 text-xs uppercase tracking-wider mt-0.5">{s.label}</div>
                 </div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* ── TRUST STRIP ── */}
-      <div className="bg-[#1e3a5f] py-4 px-6">
+      <div className="bg-[#111827] py-4 px-6">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-8 text-white/90 text-sm font-medium">
           {['GAF Master Elite Certified', 'BBB A+ Rated', 'Available 24/7', 'Free Roof Inspections', 'Austin Business Journal Top 50', 'Fully Licensed & Insured'].map(t => (
             <span key={t} className="flex items-center gap-2">
-              <LucideIcons.CheckCircle className="w-4 h-4 text-blue-300 shrink-0" /> {t}
+              <LucideIcons.CheckCircle className="w-4 h-4 text-[#f97316] shrink-0" /> {t}
             </span>
           ))}
         </div>
@@ -85,9 +101,8 @@ export default function Home() {
                 className="w-full h-full object-cover"
               />
             </div>
-            {/* ABJ Award Banner */}
             <div className="mt-6 glass-dark-card text-white rounded-xl p-5 flex items-center gap-4">
-              <LucideIcons.Award className="w-10 h-10 text-yellow-300 shrink-0" />
+              <LucideIcons.Award className="w-10 h-10 text-[#f97316] shrink-0" />
               <div>
                 <div className="font-bold text-sm">Austin Business Journal</div>
                 <div className="text-xs text-white/80 mt-0.5">Top 50 Fastest-Growing Companies in Central Texas — 2020 &amp; 2021</div>
@@ -95,8 +110,8 @@ export default function Home() {
             </div>
           </FadeUp>
           <FadeUp delay={0.15} className="space-y-6">
-            <div className="text-[#1d4ed8] text-xs font-bold uppercase tracking-widest">About WDR</div>
-            <h2 className="font-display text-4xl lg:text-5xl text-[#1e3a5f] leading-tight">
+            <div className="text-[#f97316] text-xs font-bold uppercase tracking-widest">About WDR</div>
+            <h2 className="font-display text-4xl lg:text-5xl text-[#111827] leading-tight">
               Austin's Premier<br/>Roofing Contractor
             </h2>
             <p className="text-[#475569] text-lg font-light leading-relaxed">
@@ -107,7 +122,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
               {['GAF Master Elite', 'BBB A+ Rated', 'ABJ Top 50 — 2020 & 2021', 'Fully Insured'].map(b => (
-                <span key={b} className="bg-blue-50 border border-blue-100 text-[#1d4ed8] px-4 py-2 rounded-full text-xs font-semibold">{b}</span>
+                <span key={b} className="bg-orange-50 border border-orange-100 text-[#f97316] px-4 py-2 rounded-full text-xs font-semibold">{b}</span>
               ))}
             </div>
             <div className="flex gap-4 pt-4">
@@ -122,20 +137,20 @@ export default function Home() {
       <section className="py-20 px-6 lg:px-12 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto">
           <FadeUp className="text-center mb-14">
-            <div className="text-[#1d4ed8] text-xs font-bold uppercase tracking-widest mb-3">What We Do</div>
-            <h2 className="font-display text-4xl lg:text-5xl text-[#1e3a5f]">Complete Roofing &amp; Restoration Services</h2>
+            <div className="text-[#f97316] text-xs font-bold uppercase tracking-widest mb-3">What We Do</div>
+            <h2 className="font-display text-4xl lg:text-5xl text-[#111827]">Complete Roofing &amp; Restoration Services</h2>
           </FadeUp>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.slice(0, 8).map((service, i) => {
               const Icon = (LucideIcons[service.icon as keyof typeof LucideIcons] as any) || LucideIcons.Wrench;
               return (
                 <Link to={`/services/${service.slug}`} key={i} className="glass p-7 rounded-2xl service-card group">
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-5 group-hover:bg-[#1d4ed8] transition-colors">
-                    <Icon className="w-6 h-6 text-[#1d4ed8] group-hover:text-white transition-colors" />
+                  <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-5 group-hover:bg-[#f97316] transition-colors">
+                    <Icon className="w-6 h-6 text-[#f97316] group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="font-bold text-[#1e3a5f] text-lg mb-2">{service.name}</h3>
+                  <h3 className="font-bold text-[#111827] text-lg mb-2">{service.name}</h3>
                   <p className="text-[#64748b] text-sm leading-relaxed mb-4">{service.shortDesc}</p>
-                  <span className="text-[#1d4ed8] text-xs font-bold uppercase tracking-wider service-link flex items-center gap-1">
+                  <span className="text-[#f97316] text-xs font-bold uppercase tracking-wider service-link flex items-center gap-1">
                     Learn More <LucideIcons.ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </Link>
@@ -152,8 +167,8 @@ export default function Home() {
       <section className="py-20 px-6 lg:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
           <FadeUp className="text-center mb-14">
-            <div className="text-[#1d4ed8] text-xs font-bold uppercase tracking-widest mb-3">Why Choose WDR</div>
-            <h2 className="font-display text-4xl lg:text-5xl text-[#1e3a5f]">The WDR Difference</h2>
+            <div className="text-[#f97316] text-xs font-bold uppercase tracking-widest mb-3">Why Choose WDR</div>
+            <h2 className="font-display text-4xl lg:text-5xl text-[#111827]">The WDR Difference</h2>
           </FadeUp>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -171,11 +186,11 @@ export default function Home() {
                     <img src={item.img} alt={item.title} className="w-full h-full object-cover" />
                   </div>
                   <div className="flex gap-4 p-6">
-                    <div className="w-10 h-10 rounded-xl bg-[#1e3a5f] flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-10 h-10 rounded-xl bg-[#f97316] flex items-center justify-center shrink-0 mt-0.5">
                       <Icon className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-[#1e3a5f] mb-2">{item.title}</h3>
+                      <h3 className="font-bold text-[#111827] mb-2">{item.title}</h3>
                       <p className="text-[#64748b] text-sm leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
@@ -187,10 +202,10 @@ export default function Home() {
       </section>
 
       {/* ── PROCESS ── */}
-      <section className="py-20 px-6 lg:px-12 bg-[#1e3a5f]">
+      <section className="py-20 px-6 lg:px-12 bg-[#111827]">
         <div className="max-w-7xl mx-auto">
           <FadeUp className="text-center mb-14">
-            <div className="text-blue-300 text-xs font-bold uppercase tracking-widest mb-3">How We Work</div>
+            <div className="text-[#f97316] text-xs font-bold uppercase tracking-widest mb-3">How We Work</div>
             <h2 className="font-display text-4xl lg:text-5xl text-white">Our Simple 4-Step Process</h2>
           </FadeUp>
           <ProcessSteps steps={[
@@ -212,8 +227,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-end mb-10">
             <FadeUp>
-              <div className="text-[#1d4ed8] text-xs font-bold uppercase tracking-widest mb-3">Our Work</div>
-              <h2 className="font-display text-4xl text-[#1e3a5f]">Featured Projects</h2>
+              <div className="text-[#f97316] text-xs font-bold uppercase tracking-widest mb-3">Our Work</div>
+              <h2 className="font-display text-4xl text-[#111827]">Featured Projects</h2>
             </FadeUp>
             <Link to="/video-gallery" className="hidden md:inline-block btn-ghost rounded-lg text-sm">Full Portfolio</Link>
           </div>
@@ -251,8 +266,8 @@ export default function Home() {
       <section className="py-20 px-6 lg:px-12 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto">
           <FadeUp className="text-center mb-14">
-            <div className="text-[#1d4ed8] text-xs font-bold uppercase tracking-widest mb-3">Client Reviews</div>
-            <h2 className="font-display text-4xl lg:text-5xl text-[#1e3a5f]">What Austin Homeowners Say</h2>
+            <div className="text-[#f97316] text-xs font-bold uppercase tracking-widest mb-3">Client Reviews</div>
+            <h2 className="font-display text-4xl lg:text-5xl text-[#111827]">What Austin Homeowners Say</h2>
             <div className="flex items-center justify-center gap-2 mt-4">
               {[...Array(5)].map((_, i) => <LucideIcons.Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />)}
               <span className="text-[#475569] font-medium ml-2">4.9 · 1,382+ Google Reviews</span>
@@ -269,8 +284,8 @@ export default function Home() {
       <section className="py-20 px-6 lg:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
           <FadeUp className="text-center mb-14">
-            <div className="text-[#1d4ed8] text-xs font-bold uppercase tracking-widest mb-3">Resources</div>
-            <h2 className="font-display text-4xl lg:text-5xl text-[#1e3a5f]">Roofing Tips &amp; Guides</h2>
+            <div className="text-[#f97316] text-xs font-bold uppercase tracking-widest mb-3">Resources</div>
+            <h2 className="font-display text-4xl lg:text-5xl text-[#111827]">Roofing Tips &amp; Guides</h2>
           </FadeUp>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {posts.slice(0, 3).map((post, i) => (
@@ -280,12 +295,12 @@ export default function Home() {
                     <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <div className="p-6">
-                    <span className="text-[#1d4ed8] text-xs font-bold uppercase tracking-wider">{post.category}</span>
-                    <h3 className="font-bold text-[#1e3a5f] text-lg mt-2 mb-3 leading-snug group-hover:text-[#1d4ed8] transition-colors">{post.title}</h3>
+                    <span className="text-[#f97316] text-xs font-bold uppercase tracking-wider">{post.category}</span>
+                    <h3 className="font-bold text-[#111827] text-lg mt-2 mb-3 leading-snug group-hover:text-[#f97316] transition-colors">{post.title}</h3>
                     <p className="text-[#64748b] text-sm leading-relaxed">{post.excerpt}</p>
                     <div className="flex items-center justify-between mt-5 pt-4 border-t border-gray-100">
                       <span className="text-[#94a3b8] text-xs">{post.date}</span>
-                      <span className="text-[#1d4ed8] text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                      <span className="text-[#f97316] text-xs font-bold uppercase tracking-wider flex items-center gap-1">
                         Read More <LucideIcons.ArrowRight className="w-3.5 h-3.5" />
                       </span>
                     </div>
@@ -304,8 +319,8 @@ export default function Home() {
       <section className="py-20 px-6 lg:px-12 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <FadeUp className="space-y-6">
-            <div className="text-[#1d4ed8] text-xs font-bold uppercase tracking-widest">Find Us</div>
-            <h2 className="font-display text-4xl text-[#1e3a5f]">Visit Our Austin Office</h2>
+            <div className="text-[#f97316] text-xs font-bold uppercase tracking-widest">Find Us</div>
+            <h2 className="font-display text-4xl text-[#111827]">Visit Our Austin Office</h2>
             <div className="space-y-4">
               {[
                 { icon: 'MapPin', label: 'Address', val: '9711 Beck Cir, Austin, TX 78758' },
@@ -315,21 +330,21 @@ export default function Home() {
                 const Icon = (LucideIcons[item.icon as keyof typeof LucideIcons] as any) || LucideIcons.Info;
                 return (
                   <div key={item.label} className="flex gap-4 items-start">
-                    <div className="w-10 h-10 rounded-lg bg-[#1e3a5f] flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 rounded-lg bg-[#f97316] flex items-center justify-center shrink-0">
                       <Icon className="w-5 h-5 text-white" />
                     </div>
                     <div>
                       <div className="text-xs text-[#94a3b8] uppercase tracking-wider">{item.label}</div>
                       {item.href
-                        ? <a href={item.href} className="text-[#1e3a5f] font-semibold hover:text-[#1d4ed8]">{item.val}</a>
-                        : <div className="text-[#1e3a5f] font-semibold">{item.val}</div>
+                        ? <a href={item.href} className="text-[#111827] font-semibold hover:text-[#f97316]">{item.val}</a>
+                        : <div className="text-[#111827] font-semibold">{item.val}</div>
                       }
                     </div>
                   </div>
                 );
               })}
             </div>
-            <a href="https://www.google.com/maps/place/Austin+Roofing+Company+%26+Water+Damage+%7C+WDR/@30.3761555,-97.7127597,21z/data=!4m6!3m5!1s0x8644cbeec398bf49:0x735fa6fbe3b9bd5f!8m2!3d30.3761739!4d-97.7127123!16s%2Fg%2F11gbk2fppq?entry=ttu&g_ep=EgoyMDI2MDUxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="btn-gold rounded-lg inline-flex items-center gap-2">
+            <a href="https://www.google.com/maps/place/Austin+Roofing+Company+%26+Water+Damage+%7C+WDR/@30.3761555,-97.7127597,21z" target="_blank" rel="noopener noreferrer" className="btn-gold rounded-lg inline-flex items-center gap-2">
               <LucideIcons.MapPin className="w-4 h-4" /> Get Directions
             </a>
           </FadeUp>
@@ -348,12 +363,12 @@ export default function Home() {
       </section>
 
       {/* ── CTA BANNER ── */}
-      <section className="py-20 px-6 bg-[#1d4ed8]">
+      <section className="py-20 px-6 bg-[#f97316]">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-display text-4xl lg:text-5xl text-white mb-4">Ready to Protect Your Home?</h2>
-          <p className="text-blue-100 text-lg mb-8">Get a free, no-obligation roof inspection from Austin's #1 rated contractor. We respond fast — most inspections scheduled within 24 hours.</p>
+          <p className="text-white/90 text-lg mb-8">Get a free, no-obligation roof inspection from Austin's #1 rated contractor. We respond fast — most inspections scheduled within 24 hours.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="tel:5128206505" className="inline-flex items-center gap-2 bg-white text-[#1d4ed8] font-bold text-sm uppercase tracking-wide py-4 px-8 rounded-lg hover:bg-blue-50 transition-colors shadow-lg">
+            <a href="tel:5128206505" className="inline-flex items-center gap-2 bg-white text-[#f97316] font-bold text-sm uppercase tracking-wide py-4 px-8 rounded-lg hover:bg-orange-50 transition-colors shadow-lg">
               <LucideIcons.Phone className="w-5 h-5" /> Call (512) 820-6505
             </a>
             <Link to="/contact" className="inline-flex items-center gap-2 bg-transparent border-2 border-white text-white font-bold text-sm uppercase tracking-wide py-4 px-8 rounded-lg hover:bg-white/10 transition-colors">
