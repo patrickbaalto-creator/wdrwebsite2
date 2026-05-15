@@ -14,7 +14,9 @@ const Contact      = lazy(() => import('./pages/Contact'));
 const VideoGallery = lazy(() => import('./pages/VideoGallery'));
 const ServiceArea  = lazy(() => import('./pages/service-area/ServiceArea'));
 const RoofTypes    = lazy(() => import('./pages/roof-types/RoofTypes'));
-const NotFound     = lazy(() => import('./pages/NotFound'));
+const PrivacyPolicy       = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsAndConditions  = lazy(() => import('./pages/TermsAndConditions'));
+const NotFound            = lazy(() => import('./pages/NotFound'));
 
 export default function App() {
   return (
@@ -34,6 +36,8 @@ export default function App() {
             <Route path="/video-gallery"       element={<VideoGallery />} />
             <Route path="/service-areas/:slug" element={<ServiceArea />} />
             <Route path="/roof-types"          element={<RoofTypes />} />
+            <Route path="/privacy-policy"       element={<PrivacyPolicy />} />
+            <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
             <Route path="*"                    element={<NotFound />} />
           </Routes>
         </Suspense>

@@ -76,8 +76,8 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-white/40 text-xs">© {new Date().getFullYear()} Austin Roofing Company &amp; Water Damage | WDR. All rights reserved.</p>
         <div className="flex gap-6">
-          <Link to="/" className="text-white/40 hover:text-white/70 text-xs transition-colors">Privacy Policy</Link>
-          <Link to="/" className="text-white/40 hover:text-white/70 text-xs transition-colors">Terms &amp; Conditions</Link>
+          <Link to="/privacy-policy" className="text-white/40 hover:text-white/70 text-xs transition-colors">Privacy Policy</Link>
+          <Link to="/terms-and-conditions" className="text-white/40 hover:text-white/70 text-xs transition-colors">Terms &amp; Conditions</Link>
           <Link to="/contact" className="text-white/40 hover:text-white/70 text-xs transition-colors">Sitemap</Link>
         </div>
       </div>
