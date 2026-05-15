@@ -62,13 +62,17 @@ export default function Home() {
       {/* ── HERO ── */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="/images/hero.jpg"
-            alt="Roofing professionals at work in Austin TX"
-            className="w-full h-full object-cover"
-            fetchpriority="high"
-            decoding="sync"
-          />
+          <picture>
+            <source srcSet="/images/hero-mobile.webp" media="(max-width: 768px)" type="image/webp" />
+            <source srcSet="/images/hero.webp" type="image/webp" />
+            <img
+              src="/images/hero.jpg"
+              alt="Roofing professionals at work in Austin TX"
+              className="w-full h-full object-cover"
+              fetchpriority="high"
+              decoding="sync"
+            />
+          </picture>
           <div className="absolute inset-0 bg-[#111827]/80 lg:bg-none" />
           <div className="absolute inset-0 hidden lg:block bg-gradient-to-r from-[#111827]/70 via-[#111827]/40 to-transparent" />
         </div>
