@@ -63,7 +63,7 @@ export default function Home() {
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://cdn-genah.nitrocdn.com/aCeRYObydmPvAkBCsJIPFdlzlxATatuh/assets/images/optimized/rev-f6df6c9/austinroofingandwaterdamage.com/wp-content/uploads/WDR-team.jpg"
+            src="/images/hero.jpg"
             alt="Roofing professionals at work in Austin TX"
             className="w-full h-full object-cover"
             fetchpriority="high"
