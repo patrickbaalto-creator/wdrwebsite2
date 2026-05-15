@@ -10,16 +10,16 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <FadeUp className="glass p-8 rounded-2xl text-center space-y-4 border-[#c9a96e]/20">
-        <CheckCircle className="w-12 h-12 text-[#c9a96e] mx-auto mb-4" />
-        <h3 className="font-display text-2xl text-[#f3ede0]">We'll be in touch within 2 hours.</h3>
-        <p className="text-[#f3ede0]/60">A member of our team will call you at {form.phone}.</p>
+      <FadeUp className="glass p-8 rounded-2xl text-center space-y-4">
+        <CheckCircle className="w-12 h-12 text-[#f97316] mx-auto mb-4" />
+        <h3 className="font-display text-2xl text-[#111827]">We'll be in touch within 2 hours.</h3>
+        <p className="text-[#475569]">A member of our team will call you at {form.phone}.</p>
       </FadeUp>
     );
   }
 
-  const inputClass = "w-full bg-white/[0.04] border border-white/10 text-[#f3ede0] rounded-lg px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-[#c9a96e]/40 transition-all font-light text-[0.95rem]";
-  const labelClass = "block text-[0.75rem] uppercase tracking-[0.1em] text-[#7a756e] mb-1.5";
+  const inputClass = "w-full bg-white border border-gray-200 text-[#1e293b] rounded-lg px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-[#f97316]/40 transition-all text-[0.95rem] placeholder:text-[#94a3b8]";
+  const labelClass = "block text-[0.75rem] uppercase tracking-[0.1em] text-[#64748b] mb-1.5 font-semibold";
 
   return (
     <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-5">
@@ -33,7 +33,7 @@ export function ContactForm() {
           <input required type="tel" value={form.phone} onChange={e => setForm({...form, phone: e.target.value})} className={inputClass} placeholder="(512) 555-0199" />
         </div>
       </div>
-      
+
       <div>
         <label className={labelClass}>Email Address</label>
         <input required type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})} className={inputClass} placeholder="john@example.com" />
@@ -42,26 +42,14 @@ export function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
           <label className={labelClass}>Service Type</label>
-          <select value={form.serviceType} onChange={e => setForm({...form, serviceType: e.target.value})} className={inputClass + " opacity-90"}>
-            <option className="bg-[#111113]">Not Sure</option>
-            <option className="bg-[#111113]">Roof Inspection</option>
-            <option className="bg-[#111113]">Roof Estimate</option>
-            <option className="bg-[#111113]">Roof Installation</option>
-            <option className="bg-[#111113]">Roof Repair</option>
-            <option className="bg-[#111113]">Roof Replacement</option>
-            <option className="bg-[#111113]">Reroof</option>
-            <option className="bg-[#111113]">Hail Damage</option>
-            <option className="bg-[#111113]">Water Damage Restoration</option>
+          <select value={form.serviceType} onChange={e => setForm({...form, serviceType: e.target.value})} className={inputClass}>
+            {['Not Sure','Roof Inspection','Roof Estimate','Roof Installation','Roof Repair','Roof Replacement','Reroof','Hail Damage','Water Damage Restoration'].map(o => <option key={o}>{o}</option>)}
           </select>
         </div>
         <div>
           <label className={labelClass}>Best Time to Call</label>
-          <select value={form.bestTime} onChange={e => setForm({...form, bestTime: e.target.value})} className={inputClass + " opacity-90"}>
-            <option className="bg-[#111113]">Anytime</option>
-            <option className="bg-[#111113]">Morning 7–10am</option>
-            <option className="bg-[#111113]">Midday 10am–2pm</option>
-            <option className="bg-[#111113]">Afternoon 2–6pm</option>
-            <option className="bg-[#111113]">Evening 6–8pm</option>
+          <select value={form.bestTime} onChange={e => setForm({...form, bestTime: e.target.value})} className={inputClass}>
+            {['Anytime','Morning 7–10am','Midday 10am–2pm','Afternoon 2–6pm','Evening 6–8pm'].map(o => <option key={o}>{o}</option>)}
           </select>
         </div>
       </div>

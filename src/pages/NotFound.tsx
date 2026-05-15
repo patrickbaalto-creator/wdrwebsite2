@@ -5,13 +5,13 @@ export default function NotFound() {
   useEffect(() => { document.title = "Page Not Found | WDR"; }, []);
 
   return (
-    <div className="bg-[#09090a] min-h-[80vh] flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
-       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(201,169,110,0.05)_0%,transparent_50%)] z-0" />
-       
+    <div className="bg-white min-h-[80vh] flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
+       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.05)_0%,transparent_50%)] z-0" />
+
        <div className="relative z-10 flex flex-col items-center">
-         <h1 className="font-display text-[12rem] text-[#c9a96e]/15 leading-none mb-0 select-none">404</h1>
-         <h2 className="font-display text-4xl text-[#f3ede0] mb-4 -mt-10">Page not found.</h2>
-         <p className="text-[#f3ede0]/60 font-light max-w-md mx-auto mb-10">
+         <h1 className="font-display text-[12rem] text-[#f97316]/10 leading-none mb-0 select-none">404</h1>
+         <h2 className="font-display text-4xl text-[#111827] mb-4 -mt-10">Page not found.</h2>
+         <p className="text-[#64748b] font-light max-w-md mx-auto mb-10">
            The page you are looking for doesn't exist or has been moved. 
            If you're looking for a roofer, you're still in the right place.
          </p>

@@ -6,7 +6,28 @@ import { services } from '../data/services';
 import { posts } from '../data/posts';
 import * as LucideIcons from 'lucide-react';
 import { useSEO } from '../utils/seo';
-import { motion } from 'motion/react';
+import { motion, useInView } from 'motion/react';
+import { useRef } from 'react';
+
+const grid = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.07, delayChildren: 0.05 } },
+};
+const gridItem = {
+  hidden: { opacity: 0, y: 22 },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+};
+
+function StaggerGrid({ children, className }: { children: React.ReactNode; className?: string }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: '-60px 0px' as any });
+  return (
+    <motion.div ref={ref} className={className}
+      variants={grid} initial="hidden" animate={inView ? 'show' : 'hidden'}>
+      {children}
+    </motion.div>
+  );
+}
 
 const heroItem = {
   hidden: { opacity: 0, y: 32 },
@@ -93,7 +114,7 @@ export default function Home() {
       {/* ── ABOUT / INTRO ── */}
       <section className="py-20 px-6 lg:px-12 bg-white">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <FadeUp>
+          <FadeUp from="left">
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-xl">
               <img
                 src="https://austinroofingandwaterdamage.com/wp-content/uploads/installing-roof.jpg"
@@ -109,7 +130,7 @@ export default function Home() {
               </div>
             </div>
           </FadeUp>
-          <FadeUp delay={0.15} className="space-y-6">
+          <FadeUp from="right" delay={0.1} className="space-y-6">
             <div className="text-[#f97316] text-xs font-bold uppercase tracking-widest">About WDR</div>
             <h2 className="font-display text-4xl lg:text-5xl text-[#111827] leading-tight">
               Austin's Premier<br/>Roofing Contractor
@@ -140,23 +161,25 @@ export default function Home() {
             <div className="text-[#f97316] text-xs font-bold uppercase tracking-widest mb-3">What We Do</div>
             <h2 className="font-display text-4xl lg:text-5xl text-[#111827]">Complete Roofing &amp; Restoration Services</h2>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.slice(0, 8).map((service, i) => {
               const Icon = (LucideIcons[service.icon as keyof typeof LucideIcons] as any) || LucideIcons.Wrench;
               return (
-                <Link to={`/services/${service.slug}`} key={i} className="glass p-7 rounded-2xl service-card group">
-                  <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-5 group-hover:bg-[#f97316] transition-colors">
-                    <Icon className="w-6 h-6 text-[#f97316] group-hover:text-white transition-colors" />
-                  </div>
-                  <h3 className="font-bold text-[#111827] text-lg mb-2">{service.name}</h3>
-                  <p className="text-[#64748b] text-sm leading-relaxed mb-4">{service.shortDesc}</p>
-                  <span className="text-[#f97316] text-xs font-bold uppercase tracking-wider service-link flex items-center gap-1">
-                    Learn More <LucideIcons.ArrowRight className="w-3.5 h-3.5" />
-                  </span>
-                </Link>
+                <motion.div key={i} variants={gridItem}>
+                  <Link to={`/services/${service.slug}`} className="glass p-7 rounded-2xl service-card group block h-full">
+                    <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-5 group-hover:bg-[#f97316] transition-colors duration-300">
+                      <Icon className="w-6 h-6 text-[#f97316] group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <h3 className="font-bold text-[#111827] text-lg mb-2">{service.name}</h3>
+                    <p className="text-[#64748b] text-sm leading-relaxed mb-4">{service.shortDesc}</p>
+                    <span className="text-[#f97316] text-xs font-bold uppercase tracking-wider service-link flex items-center gap-1">
+                      Learn More <LucideIcons.ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </Link>
+                </motion.div>
               );
             })}
-          </div>
+          </StaggerGrid>
           <div className="text-center mt-10">
             <Link to="/services" className="btn-ghost rounded-lg">See All Roofing Services</Link>
           </div>
@@ -232,33 +255,21 @@ export default function Home() {
             </FadeUp>
             <Link to="/video-gallery" className="hidden md:inline-block btn-ghost rounded-lg text-sm">Full Portfolio</Link>
           </div>
-          <div className="gallery-grid rounded-2xl overflow-hidden">
-            <div className="gallery-item gallery-item-large">
-              <img src="https://austinroofingandwaterdamage.com/wp-content/uploads/Round-Rock-shingles-scaled.jpg" alt="Premium asphalt shingle roof installation in Round Rock TX by WDR Roofing" />
-              <div className="gallery-overlay"></div>
-              <div className="gallery-label">Premium Asphalt Install — Round Rock</div>
-            </div>
-            <div className="gallery-item">
-              <img src="https://austinroofingandwaterdamage.com/wp-content/uploads/metal-roofing-austin-tx.jpg" alt="Standing seam metal roof in Austin TX by WDR" />
-              <div className="gallery-overlay"></div>
-              <div className="gallery-label">Standing Seam Metal — Austin</div>
-            </div>
-            <div className="gallery-item">
-              <img src="https://austinroofingandwaterdamage.com/wp-content/uploads/done-Lakeline.jpg" alt="Completed roof project at Lakeline by WDR Roofing" />
-              <div className="gallery-overlay"></div>
-              <div className="gallery-label">Full Replacement — Lakeline</div>
-            </div>
-            <div className="gallery-item">
-              <img src="https://austinroofingandwaterdamage.com/wp-content/uploads/storm-damage-roof-repair-austin-tx1-scaled.jpg" alt="Storm damage roof repair in Austin TX by WDR" />
-              <div className="gallery-overlay"></div>
-              <div className="gallery-label">Storm Damage Repair — Austin</div>
-            </div>
-            <div className="gallery-item">
-              <img src="https://austinroofingandwaterdamage.com/wp-content/uploads/commercial-roof-repair-austin-tx.jpg" alt="Commercial roof repair in Austin TX by WDR" />
-              <div className="gallery-overlay"></div>
-              <div className="gallery-label">Commercial Repair — Austin</div>
-            </div>
-          </div>
+          <StaggerGrid className="gallery-grid rounded-2xl overflow-hidden">
+            {[
+              { cls: 'gallery-item gallery-item-large', src: 'https://austinroofingandwaterdamage.com/wp-content/uploads/Round-Rock-shingles-scaled.jpg', alt: 'Premium asphalt shingle roof installation in Round Rock TX by WDR Roofing', label: 'Premium Asphalt Install — Round Rock' },
+              { cls: 'gallery-item', src: 'https://austinroofingandwaterdamage.com/wp-content/uploads/metal-roofing-austin-tx.jpg', alt: 'Standing seam metal roof in Austin TX by WDR', label: 'Standing Seam Metal — Austin' },
+              { cls: 'gallery-item', src: 'https://austinroofingandwaterdamage.com/wp-content/uploads/done-Lakeline.jpg', alt: 'Completed roof project at Lakeline by WDR Roofing', label: 'Full Replacement — Lakeline' },
+              { cls: 'gallery-item', src: 'https://austinroofingandwaterdamage.com/wp-content/uploads/storm-damage-roof-repair-austin-tx1-scaled.jpg', alt: 'Storm damage roof repair in Austin TX by WDR', label: 'Storm Damage Repair — Austin' },
+              { cls: 'gallery-item', src: 'https://austinroofingandwaterdamage.com/wp-content/uploads/commercial-roof-repair-austin-tx.jpg', alt: 'Commercial roof repair in Austin TX by WDR', label: 'Commercial Repair — Austin' },
+            ].map((img, i) => (
+              <motion.div key={i} variants={gridItem} className={img.cls}>
+                <img src={img.src} alt={img.alt} />
+                <div className="gallery-overlay"></div>
+                <div className="gallery-label">{img.label}</div>
+              </motion.div>
+            ))}
+          </StaggerGrid>
         </div>
       </section>
 
@@ -318,7 +329,7 @@ export default function Home() {
       {/* ── LOCATION / MAP ── */}
       <section className="py-20 px-6 lg:px-12 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <FadeUp className="space-y-6">
+          <FadeUp from="left" className="space-y-6">
             <div className="text-[#f97316] text-xs font-bold uppercase tracking-widest">Find Us</div>
             <h2 className="font-display text-4xl text-[#111827]">Visit Our Austin Office</h2>
             <div className="space-y-4">
@@ -348,6 +359,7 @@ export default function Home() {
               <LucideIcons.MapPin className="w-4 h-4" /> Get Directions
             </a>
           </FadeUp>
+          <FadeUp from="right">
           <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-200 h-80">
             <iframe
               title="Austin Roofing Company & Water Damage | WDR"
@@ -359,6 +371,7 @@ export default function Home() {
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3446.5!2d-97.7127123!3d30.3761739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b5a4f8b0c1a3%3A0x9c1f2d3e4a5b6c7d!2sAustin+Roofing+Company+%26+Water+Damage+%7C+WDR!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
             />
           </div>
+          </FadeUp>
         </div>
       </section>
 

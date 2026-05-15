@@ -15,7 +15,7 @@ export function PageHero({
     <div ref={ref} style={{ height }} className="relative overflow-hidden flex items-center justify-center text-center px-6">
       {image && (
         <motion.div style={{ y }} className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1e3a5f]/75 via-[#1e3a5f]/55 to-[#1e3a5f]/80 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#111827]/75 via-[#111827]/55 to-[#111827]/80 z-10" />
           <img src={image} alt="Background" className="w-full h-full object-cover" />
         </motion.div>
       )}
@@ -29,7 +29,7 @@ export function PageHero({
         {eyebrow && (
           <motion.div 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-            className="text-[0.7rem] font-semibold tracking-[0.2em] uppercase text-[#c9a96e] mb-4"
+            className="text-[0.7rem] font-semibold tracking-[0.2em] uppercase text-[#f97316] mb-4"
           >
             {eyebrow}
           </motion.div>
