@@ -75,15 +75,24 @@ body {
   letter-spacing: 0.04em !important; text-transform: uppercase !important;
   padding: 0.85rem 2rem !important; text-decoration: none !important; display: inline-block !important;
   transition: all 0.2s ease !important;
-  border: 2px solid #111827 !important;
-  color: #111827 !important;
+  border: 2px solid #f97316 !important;
+  color: #f97316 !important;
   border-radius: 0.5rem !important;
   background: transparent !important;
 }
 .btn-ghost:hover {
+  border-color: #ea580c !important;
+  color: #ea580c !important;
+  background: rgba(249,115,22,0.08) !important;
+}
+.dark .btn-ghost {
   border-color: #f97316 !important;
   color: #f97316 !important;
-  background: rgba(249,115,22,0.05) !important;
+}
+.dark .btn-ghost:hover {
+  border-color: #ea580c !important;
+  color: #ea580c !important;
+  background: rgba(249,115,22,0.12) !important;
 }
 
 /* Gallery */
@@ -239,6 +248,7 @@ body {
 :root:not(.dark) .bg-white { background-color: #ffffff !important; }
 :root:not(.dark) .bg-\[\#f8fafc\] { background-color: #f8fafc !important; }
 :root:not(.dark) section { background-color: inherit; }
+:root:not(.dark) section.bg-\[\#111827\] { background-color: #111827 !important; }
 
 /* ── Dark mode ── */
 .dark body {
