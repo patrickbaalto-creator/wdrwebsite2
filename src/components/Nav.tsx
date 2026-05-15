@@ -4,10 +4,9 @@ import { Menu, X, Phone, ChevronDown, Moon, Sun } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 
 function useDarkMode() {
-  const [dark, setDark] = useState(() => localStorage.getItem('wdr-dark') === 'true');
+  const [dark, setDark] = useState(false);
   const toggle = () => setDark(d => {
     const next = !d;
-    localStorage.setItem('wdr-dark', String(next));
     document.documentElement.classList.toggle('dark', next);
     return next;
   });
