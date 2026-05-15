@@ -72,7 +72,7 @@ export function Nav() {
   return (
     <>
       {/* Top bar */}
-      <div className="hidden md:flex bg-[#1e3a5f] text-white text-xs px-6 md:px-12 py-2 items-center justify-between">
+      <div className="hidden md:flex bg-[#111827] text-white text-xs px-6 md:px-12 py-2 items-center justify-between">
         <span>Austin's Premier Roofing & Water Damage Contractor — Serving Since 2012</span>
         <div className="flex items-center gap-6">
           <span>9711 Beck Cir, Austin, TX 78758</span>
@@ -84,9 +84,9 @@ export function Nav() {
         ${scrolled ? 'shadow-md border-b border-gray-200' : 'border-b border-gray-100'}`}>
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
-          <div className="bg-[#1e3a5f] text-white font-bold text-lg px-3 py-1.5 rounded font-display tracking-wide">WDR</div>
+          <div className="bg-[#111827] text-[#f97316] font-bold text-lg px-3 py-1.5 rounded font-display tracking-wide border-l-4 border-[#f97316]">WDR</div>
           <div className="hidden sm:block">
-            <div className="text-[#1e3a5f] font-bold text-sm leading-tight">Austin Roofing</div>
+            <div className="text-[#111827] font-bold text-sm leading-tight">Austin Roofing</div>
             <div className="text-[#64748b] text-xs leading-tight">& Water Damage</div>
           </div>
         </Link>
@@ -97,13 +97,13 @@ export function Nav() {
             <div key={idx} className="relative group h-full flex items-center">
               {item.isDropdown ? (
                 <>
-                  <button className={`h-full flex items-center gap-1 px-3 text-[0.78rem] font-semibold cursor-pointer transition-colors ${location.pathname.startsWith('/' + item.name.toLowerCase().replace(' ', '-')) ? 'text-[#1d4ed8]' : 'text-[#334155] hover:text-[#1d4ed8]'}`} aria-haspopup="true">
+                  <button className={`h-full flex items-center gap-1 px-3 text-[0.78rem] font-semibold cursor-pointer transition-colors ${location.pathname.startsWith('/' + item.name.toLowerCase().replace(' ', '-')) ? 'text-[#f97316]' : 'text-[#334155] hover:text-[#f97316]'}`} aria-haspopup="true">
                     {item.name} <ChevronDown className="w-3 h-3 opacity-50" />
                   </button>
                   <div className="absolute top-full left-0 pt-1 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     <div className="bg-white rounded-xl shadow-xl border border-gray-100 py-2">
                       {item.links?.map((link, lidx) => (
-                        <Link key={lidx} to={link.href} className={`block text-[0.8rem] px-4 py-2.5 transition-colors ${location.pathname === link.href ? 'text-[#1d4ed8] bg-blue-50' : 'text-[#475569] hover:text-[#1d4ed8] hover:bg-blue-50'}`}>
+                        <Link key={lidx} to={link.href} className={`block text-[0.8rem] px-4 py-2.5 transition-colors ${location.pathname === link.href ? 'text-[#f97316] bg-orange-50' : 'text-[#475569] hover:text-[#f97316] hover:bg-orange-50'}`}>
                           {link.name}
                         </Link>
                       ))}
@@ -111,7 +111,7 @@ export function Nav() {
                   </div>
                 </>
               ) : (
-                <Link to={item.href!} className={`h-full flex items-center px-3 text-[0.78rem] font-semibold transition-colors ${location.pathname === item.href ? 'text-[#1d4ed8]' : 'text-[#334155] hover:text-[#1d4ed8]'}`}>
+                <Link to={item.href!} className={`h-full flex items-center px-3 text-[0.78rem] font-semibold transition-colors ${location.pathname === item.href ? 'text-[#f97316]' : 'text-[#334155] hover:text-[#f97316]'}`}>
                   {item.name}
                 </Link>
               )}
@@ -142,7 +142,7 @@ export function Nav() {
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
-            className="text-[#1e3a5f]"
+            className="text-[#111827]"
           >
             {mobileOpen ? <X /> : <Menu />}
           </button>
@@ -164,7 +164,7 @@ export function Nav() {
                 <div key={idx} className="border-b border-gray-100 pb-4">
                   {item.isDropdown ? (
                     <div className="flex flex-col gap-2">
-                      <span className="text-[0.75rem] uppercase tracking-wider text-[#1d4ed8] font-bold">{item.name}</span>
+                      <span className="text-[0.75rem] uppercase tracking-wider text-[#f97316] font-bold">{item.name}</span>
                       <div className="pl-3 flex flex-col gap-2">
                         {item.links?.map((link, lidx) => (
                           <Link key={lidx} to={link.href} className="text-[#475569] text-base">{link.name}</Link>
@@ -172,7 +172,7 @@ export function Nav() {
                       </div>
                     </div>
                   ) : (
-                    <Link to={item.href!} className="text-[#1e3a5f] text-lg font-semibold">{item.name}</Link>
+                    <Link to={item.href!} className="text-[#111827] text-lg font-semibold">{item.name}</Link>
                   )}
                 </div>
               ))}
